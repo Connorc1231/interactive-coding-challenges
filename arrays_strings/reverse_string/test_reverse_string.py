@@ -1,5 +1,14 @@
 from nose.tools import assert_equal
 
+class ReverseString(object):
+
+    def reverse(self, chars):
+        if chars is None or chars == ['']:
+            return chars
+        results = [];
+        for i, char in enumerate(chars):
+            results = [char] + results
+        return results
 
 class TestReverse(object):
 
@@ -27,3 +36,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+[1, 2, 3]
+[3, 2, 1]

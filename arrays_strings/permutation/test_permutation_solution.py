@@ -1,5 +1,22 @@
 from nose.tools import assert_equal
 
+class Permutations(object):
+
+    def is_permutation(self, str1, str2):
+        if str1 is None or str2 is None:
+            return False
+        if str1 == '' or str2 == '':
+            return False
+        charArray = []
+        for char in str1:
+            charArray.append(char)
+        for char in str2:
+            if char in charArray:
+                charArray.remove(char)
+            else:
+                return False
+        return True
+        pass
 
 class TestPermutation(object):
 

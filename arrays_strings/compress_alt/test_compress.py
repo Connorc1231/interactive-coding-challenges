@@ -1,5 +1,26 @@
 from nose.tools import assert_equal
 
+def compress_string(string):
+    if string is None or not string:
+        return string
+    result = ''
+    prevChar = string[0]
+    count = 0;
+    for char in string:
+        if char == prevChar:
+            count += 1
+        else:
+            result += helper(prevChar, count)
+            prevChar = char
+            count = 1
+    result += helper(prevChar, count)
+    return result if len(result) < len(string) else string
+
+
+def helper(prevChar, count):
+    if count == 2:
+        return prevChar + prevChar
+    return prevChar + (str(count) if count > 2 else '')
 
 class TestCompress(object):
 

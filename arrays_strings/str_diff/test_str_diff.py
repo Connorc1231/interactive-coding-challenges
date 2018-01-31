@@ -1,5 +1,20 @@
 from nose.tools import assert_equal, assert_raises
 
+class Solution(object):
+
+    def find_diff(self, s, t):
+        if s is None or t is None:
+            raise TypeError('Error!')
+        a1 = list(s)
+        a2 = list(t)
+        for char in a1:
+            if char not in a2:
+                return char
+            a2.remove(char)
+        if len(a2):
+            return a2[0]
+        else:
+            return False
 
 class TestFindDiff(object):
 
