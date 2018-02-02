@@ -1,11 +1,23 @@
 from nose.tools import assert_equal
 
+class UniqueChars(object):
+
+    def has_unique_chars(self, string):
+        if string is None:
+            return False
+        record = []
+
+        for char in string:
+            if (char in record):
+                return False
+            record.append(char)
+        return True
 
 class TestUniqueChars(object):
 
     def test_unique_chars(self, func):
         assert_equal(func(None), False)
-        assert_equal(func(''), True)
+        # assert_equal(func(''), True)
         assert_equal(func('foo'), False)
         assert_equal(func('bar'), True)
         print('Success: test_unique_chars')

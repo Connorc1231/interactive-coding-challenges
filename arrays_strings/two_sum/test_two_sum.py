@@ -1,5 +1,20 @@
 from nose.tools import assert_equal, assert_raises
 
+class Solution(object):
+
+    def two_sum(self, nums, val):
+        if nums is None:
+            raise TypeError('ERROR! Type None')
+        if len(nums) == 0:
+            raise ValueError('ERROR! Empty array')
+        results = []
+        for ind1, i in enumerate(nums):
+            for ind2, j in enumerate(nums): 
+                if i + j == val and (ind1 not in results and ind2 not in results):
+                    results.append(ind1)
+                    results.append(ind2)
+        return results
+
 
 class TestTwoSum(object):
 
